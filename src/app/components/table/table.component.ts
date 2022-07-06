@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ElementsService} from '../../services/elements.service';
 
 @Component({
   selector: 'app-table',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  constructor() { }
+  constructor(public eService: ElementsService) { }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,27 @@
+\:host
+  display: grid
+  width: 90%
+  margin-left: 5%
+  border: solid 0.5px rgba(0,0,0,0.2)
+  grid-template-rows: repeat(9, 1fr)
+  grid-template-columns: repeat(17, 1fr)
+  min-height: 600px
+
+.element
+  background: whitesmoke
+  border: solid 0.5px rgba(0,0,0,0.9)
+  position: relative
+  &:hover
+    background: white
+    cursor: pointer
+  .symbol
+    text-align: center
+    font-size: var(--element-symbol-size)
+    width: 100%
+    position: absolute
+    align-self: center
+    align-content: center
+    vertical-align: middle
+    place-self: center
+    margin-top: calc((100% - var(--element-symbol-size)) / 2)
+

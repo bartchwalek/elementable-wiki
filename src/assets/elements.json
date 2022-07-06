@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Hydrogen",
+    "symbol": "H",
+    "an": 1,
+    "aw": 1,
+    "grid": [0,0],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Helium",
+    "symbol": "He",
+    "an": 1,
+    "aw": 1,
+    "grid": [0,16],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Lithium",
+    "symbol": "Li",
+    "an": 1,
+    "aw": 1,
+    "grid": [1,0],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Beryllium",
+    "symbol": "Be",
+    "an": 1,
+    "aw": 1,
+    "grid": [1,1],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Boron",
+    "symbol": "B",
+    "an": 1,
+    "aw": 1,
+    "grid": [1,11],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Carbon",
+    "symbol": "C",
+    "an": 1,
+    "aw": 1,
+    "grid": [1,12],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Nitrogen",
+    "symbol": "N",
+    "an": 1,
+    "aw": 1,
+    "grid": [1,13],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Oxygen",
+    "symbol": "O",
+    "an": 1,
+    "aw": 1,
+    "grid": [1,14],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Fluorine",
+    "symbol": "F",
+    "an": 1,
+    "aw": 1,
+    "grid": [1,15],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  },
+  {
+    "name": "Neon",
+    "symbol": "Ne",
+    "an": 1,
+    "aw": 1,
+    "grid": [1,16],
+    "d": 0,
+    "bp": 0,
+    "mp": 0
+  }
+]

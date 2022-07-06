@@ -1,0 +1,45 @@
+\:host
+  position: fixed
+  top: 0px
+  left: 0px
+  height: 15vh
+  background: darkblue
+  width: 100vw
+
+.logo
+  position: absolute
+  left: 0px
+  margin-left: 10px
+  height: 15vh
+
+.menu-links
+  position: absolute
+  left: 20vw
+  width: 80vw
+  padding: 0px
+  margin: 0px
+  height: 50px
+  top: calc(15vh - 50px)
+  display: grid
+  grid-template-columns: repeat(3, 1fr [col-start])
+
+.menu-link
+  display: table-cell
+  background: rgb(45, 45, 63)
+  color: white
+  padding: 5px
+  border-right: solid 0.5px white
+  &:hover
+    background: rgba(255,255,255,1)
+    cursor: pointer
+    color: black
+
+
+.menu-title
+  position: absolute
+  top: 15px
+  left: 20vw
+  width: 70vw
+  font-size: 26px
+  color: whitesmoke
+

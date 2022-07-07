@@ -10,6 +10,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MorePageComponent } from './pages/more-page/more-page.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ElementsFilterComponent } from './components/elements-filter/elements-filter.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     MainPageComponent,
     MenuComponent,
     SearchPageComponent,
-    MorePageComponent
+    MorePageComponent,
+    ElementsFilterComponent
   ],
   imports: [
     BrowserModule,

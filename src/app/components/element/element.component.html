@@ -1,1 +1,3 @@
-<p>element works!</p>
+<div class="symbol">{{element.symbol}}</div>
+<div class="atomic-number" *ngIf="show.includes('atomic_number')">{{element.an}}</div>
+<div class="atomic-mass" *ngIf="show.includes('atomic_mass')">{{element.aw.toFixed(4)}}</div>

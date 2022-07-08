@@ -1,0 +1,7 @@
+<span class="label">{{label}}</span>
+<div #selector class="selector" (click)="toggle()" [style.background]="selected"><div class="preview" [style.background]="previewed" *ngIf="showPalette"></div></div>
+<div class="palette-container" #pal>
+  <div class="palette" [style.display]="showPalette ? 'grid' : 'none'">
+    <div class="sample" *ngFor="let col of colors" [style.background]="col" (click)="select(col)" (mouseenter)="preview(col)"></div>
+  </div>
+</div>

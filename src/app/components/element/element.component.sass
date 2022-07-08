@@ -1,26 +1,44 @@
 \:host
   background: #ffffff
-  border: solid 0.5px rgba(0,0,0,0.9)
+  border: solid 0.5px rgba(0, 0, 0, 0.9)
   position: relative
   height: 100%
   color: rgb(68, 68, 68)
   display: grid
+
   &:hover
     background: #cbe0fd
     color: black
     cursor: pointer
+
   .symbol
     text-align: center
     font-size: var(--element-symbol-size)
     width: 100%
     align-self: center
+
   .atomic-number
     position: absolute
     right: 1px
     top: 1px
     font-size: 12px
+
   .atomic-mass
     position: absolute
     bottom: 2px
     left: 5px
     font-size: var(--element-data-size)
+
+  .filter-overlay
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 100%
+    z-index: 10
+    background: rgba(0, 0, 0, 0)
+
+    .applied-filter
+      position: relative
+      width: calc(33% - 2px)
+      height: 20px
+      opacity: 0.9

@@ -1,3 +1,6 @@
+<div class="filter-overlay" #filterOverlay>
+  <div class="applied-filter" *ngFor="let af of onFilters" [style.background]="af.color"></div>
+</div>
 <div class="symbol">{{element.symbol}}</div>
 <div class="atomic-number" *ngIf="show.includes('atomic_number')">{{element.an}}</div>
 <div class="atomic-mass" *ngIf="show.includes('atomic_mass')">{{element.aw.toFixed(4)}}</div>

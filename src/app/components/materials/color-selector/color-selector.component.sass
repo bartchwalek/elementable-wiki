@@ -1,0 +1,47 @@
+\:host
+  font-size: 1rem
+  padding: 10px
+  margin: 10px
+  position: relative
+
+  span
+    padding-left: 10px
+
+.label
+
+.icon
+  font-size: 2ex
+
+.selector
+  display: inline-block
+  width: 100px
+  border: solid 0.5px rgba(0, 0, 0, 0.5)
+  height: 30px
+  cursor: pointer
+  position: relative
+  z-index: 10002
+
+  .preview
+    width: 100px
+    height: 30px
+    position: absolute
+    top: 0px
+    left: 0px
+
+.palette-container
+  max-height: 10vh
+  overflow-y: auto
+  position: absolute
+  z-index: 10001
+
+  .palette
+    display: grid
+    background: white
+    border: solid 0.5px rgba(0, 0, 0, 0.5)
+    grid-template-columns: repeat(var(--color-selector-cols), 1fr)
+    grid-template-rows: repeat(var(--color-selector-rows), 1fr)
+
+    .sample
+      min-height: 20px
+      cursor: pointer
+

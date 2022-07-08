@@ -11,6 +11,8 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MorePageComponent } from './pages/more-page/more-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ElementsFilterComponent } from './components/elements-filter/elements-filter.component';
+import { ColorSelectorComponent } from './components/materials/color-selector/color-selector.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { ElementsFilterComponent } from './components/elements-filter/elements-f
     MenuComponent,
     SearchPageComponent,
     MorePageComponent,
-    ElementsFilterComponent
+    ElementsFilterComponent,
+    ColorSelectorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

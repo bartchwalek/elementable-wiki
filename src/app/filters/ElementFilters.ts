@@ -1,10 +1,35 @@
 import {ElementFilter} from './ElementFilter';
 import {AtomicElement} from '../model/atomic.element';
 
+export enum EComparatorType {
+  equal = '==',
+  lessThan = '<',
+  moreThan = '>'
+}
+
+export class ElementCompareFilter<T> extends ElementFilter<T> {
+  private operandValueKey: string;
+  private comparator: EComparatorType;
+
+  public constructor(operand: T, operandValueKey: string, comparator: EComparatorType = EComparatorType.equal) {
+    super(operand);
+    this.operandValueKey = operandValueKey;
+    this.comparator = comparator;
+  }
+
+  filteringFunction(element: AtomicElement, prevR: boolean | undefined): boolean {
+    // tslint:disable-next-line:no-eval
+    return eval(`element[this.operandValueKey]${this.comparator}this.compareOperand`);
+
+
+  }
+
+}
+
 export class ElementMaxFilter extends ElementFilter<number> {
   private operandValueKey: string;
 
-  protected constructor(maxVal: number, operandValueKey: string) {
+  public constructor(maxVal: number, operandValueKey: string) {
     super(maxVal);
     this.operandValueKey = operandValueKey;
   }
@@ -17,7 +42,7 @@ export class ElementMaxFilter extends ElementFilter<number> {
 export class ElementMinFilter extends ElementFilter<number> {
   private operandValueKey: string;
 
-  protected constructor(maxVal: number, operandValueKey: string) {
+  public constructor(maxVal: number, operandValueKey: string) {
     super(maxVal);
     this.operandValueKey = operandValueKey;
   }

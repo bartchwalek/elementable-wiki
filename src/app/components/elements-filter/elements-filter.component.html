@@ -1,18 +1,38 @@
-<div class="slider-container">
-  <span><input type="checkbox" #enableAtomicWeightFilter (change)="updateView($event)"></span>
-  <fieldset style="display: inline-block" [disabled]="!enableAtomicWeightFilter.checked"
-            [style.background]="enableAtomicWeightFilter.checked ? color : 'white'">
-    <span>Atomic weight</span> <span style="width:20px; margin-right: 20px;"></span>
-    <label for="atomic-weight-min">min</label>
-    <input type="range" min="0" max="200" value="0" class="slider" id="atomic-weight-min"
-           (input)="setFilterValue('aw', 'min', $event)" #awMinValue>
+<div [ngSwitch]="filterType" class="filter-container">
+  <div *ngSwitchCase="'select'">
+    <span class="filter-enable"><input type="checkbox" #filterEnabled (change)="updateView($event)"></span>
+    <fieldset [disabled]="!filterEnabled.checked" [style.background]="filterEnabled.checked ? color : 'white'">
+      <span>{{filterLabel}}</span> <span style="width:20px; margin-right: 20px;"></span>
+      <select (input)="setFilterValue('compare', $event)">
+        <option *ngFor="let opt of options">{{opt}}</option>
+      </select>
+      <app-color-selector loadJson="colors" [(selected)]="color"></app-color-selector>
+    </fieldset>
 
-    <label for="atomic-weight-max">max</label>
-    <input type="range" min="0" max="200" value="200" class="slider" id="atomic-weight-max"
-           (input)="setFilterValue('aw', 'max', $event)" #awMaxValue>
+  </div>
 
-    <span>{{awMinValue.value}} - {{awMaxValue.value}}</span>
-    <app-color-selector loadJson="colors" [(selected)]="color"></app-color-selector>
-  </fieldset>
+  <div *ngSwitchCase="'range'">
+    <div class="slider-container">
+      <span class="filter-enable"><input type="checkbox" #filterEnabled (change)="updateView($event)"></span>
+      <fieldset style="display: inline-block" [disabled]="!filterEnabled.checked"
+                [style.background]="filterEnabled.checked ? color : 'white'">
+        <span>{{filterLabel}}</span> <span style="width:20px; margin-right: 20px;"></span>
+        <label for="atomic-weight-min">min</label>
+        <input type="range" min="{{filterOptions.min}}" max="{{filterOptions.max}}" step="{{filterOptions.step}}"
+               value="{{filterOptions.initialState.lowerBound}}" class="slider" id="atomic-weight-min"
+               (input)="setFilterValue('min', $event)" #awMinValue>
+
+        <label for="atomic-weight-max">max</label>
+        <input type="range" min="{{filterOptions.min}}" max="{{filterOptions.max}}" step="{{filterOptions.step}}"
+               value="{{filterOptions.initialState.upperBound}}" class="slider" id="atomic-weight-max"
+               (input)="setFilterValue('max', $event)" #awMaxValue>
+
+        <span>{{awMinValue.value}} - {{awMaxValue.value}} {{unit}}</span>
+        <app-color-selector loadJson="colors" [(selected)]="color"></app-color-selector>
+      </fieldset>
+
+    </div>
+  </div>
 
 </div>
+

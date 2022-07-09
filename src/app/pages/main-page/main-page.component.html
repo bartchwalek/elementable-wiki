@@ -1,7 +1,32 @@
 <p></p>
 <h2>Welcome to ElemenTable.wiki</h2>
 
-<app-elements-filter [filterTable]="mainElementsTable"></app-elements-filter>
+<app-elements-filter [filterTable]="mainElementsTable" filterLabel="Atomic Weight" filterType="range"
+                     filterId="aw.minmax" operandKey="aw" [filterOptions]="{
+                     min: 0,
+                     max: 200
+                     }"
+                     unit="g/mol"></app-elements-filter>
+
+<app-elements-filter [filterTable]="mainElementsTable" filterLabel="Density" filterType="range"
+                     filterId="d.minmax" operandKey="d" [filterOptions]="{
+                     min: 0,
+                     max: 10,
+                     step: 0.1,
+                     initialState: {
+                      lowerBound: 0,
+                      upperBound: 10
+                     }
+                     }"
+                     unit="g/cm3"
+                     color="yellow"
+></app-elements-filter>
+
+<app-elements-filter [filterTable]="mainElementsTable" filterLabel="Category" filterType="select"
+                     filterId="category" operandKey="category" [filterOptions]="{
+                    }"
+                     color="lightblue"
+></app-elements-filter>
 
 <app-table tableId="main" [show]="['symbol', 'atomic_number', 'atomic_mass']" #mainElementsTable></app-table>
 

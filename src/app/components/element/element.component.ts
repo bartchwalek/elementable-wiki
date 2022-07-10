@@ -81,7 +81,7 @@ export class ElementComponent implements OnInit {
     switch (af.filterType) {
       case EElementFilterType.range:
 
-        msg = `${msg}: ${val} is between ${af.getSubFilter('min').filter.compareOperand} and ${af.getSubFilter('max').filter.compareOperand}`;
+        msg = `${msg}: ${val} is between ${af.getSubFilter('min').filter.compareOperand} and ${af.getSubFilter('max').filter.compareOperand} ${af.unit}`;
         break;
 
       case EElementFilterType.select:

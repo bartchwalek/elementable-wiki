@@ -1,6 +1,8 @@
 import {Component, ElementRef, Input, OnInit} from '@angular/core';
 import {TableComponent} from '../table/table.component';
-import {AtomicElement, IElement} from '../../model/atomic.element';
+import {AtomicElement} from '../../model/atomic.element';
+import {ElementStatusService} from "../../services/element-status.service";
+import {EElementFilterType, ElementsFilterComponent} from "../elements-filter/elements-filter.component";
 
 export enum EElementViews {
   symbol = 'symbol',
@@ -17,6 +19,7 @@ export interface IElementAppliedFilter {
   name: string;
   color: string;
   on: boolean;
+  filterRefComponent: ElementsFilterComponent;
 }
 
 @Component({
@@ -45,12 +48,13 @@ export class ElementComponent implements OnInit {
     return this.el;
   }
 
-  public addFilter(id: string, color: string): void {
+  public addFilter(id: string, color: string, filter: ElementsFilterComponent): void {
     if (!this.appliedFilters.find(v => id === v.name)) {
       this.appliedFilters.push({
         color,
         name: id,
-        on: false
+        on: false,
+        filterRefComponent: filter
       });
     }
   }
@@ -69,7 +73,35 @@ export class ElementComponent implements OnInit {
 
   @Input() public show: string[];
 
-  constructor(public parentTable: TableComponent, public elementRef: ElementRef) {
+  buildMessage(af: ElementsFilterComponent): string {
+    const val = this.element[af.operandKey];
+    const meta = af.filterLabel;
+    const un = af.unit;
+    let msg = meta;
+    switch (af.filterType) {
+      case EElementFilterType.range:
+
+        msg = `${msg}: ${val} is between ${af.getSubFilter('min').filter.compareOperand} and ${af.getSubFilter('max').filter.compareOperand}`;
+        break;
+
+      case EElementFilterType.select:
+        msg = `${msg}: ${val}`;
+        break;
+    }
+    return msg;
+  }
+
+  setFilteringMessage(af: IElementAppliedFilter): void {
+    // console.log('applied filter', af);
+    this.ess.setMessage('main', this.buildMessage(af.filterRefComponent), af.color);
+  }
+
+  setStatus(): void {
+    this.ess.setElement('main', this.element);
+    this.ess.setStatus('main', this.element.name);
+  }
+
+  constructor(public parentTable: TableComponent, public elementRef: ElementRef, public ess: ElementStatusService) {
     if (parentTable.show) {
       this.show = parentTable.show;
     }

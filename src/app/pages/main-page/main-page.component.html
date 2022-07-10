@@ -1,33 +1,36 @@
 <p></p>
 <h2>Welcome to ElemenTable.wiki</h2>
+<fieldset>
+  <select #fval>
+    <option *ngFor="let f of filterTypes" value="{{f.value}}">{{f.label}}</option>
+  </select>
+  <button class="button button-add button-filter" (click)="addFilter(fval.value)">+</button>
 
-<app-elements-filter [filterTable]="mainElementsTable" filterLabel="Atomic Weight" filterType="range"
-                     filterId="aw.minmax" operandKey="aw" [filterOptions]="{
-                     min: 0,
-                     max: 200
-                     }"
-                     unit="g/mol"></app-elements-filter>
+</fieldset>
 
-<app-elements-filter [filterTable]="mainElementsTable" filterLabel="Density" filterType="range"
-                     filterId="d.minmax" operandKey="d" [filterOptions]="{
-                     min: 0,
-                     max: 10,
-                     step: 0.1,
-                     initialState: {
-                      lowerBound: 0,
-                      upperBound: 10
-                     }
-                     }"
-                     unit="g/cm3"
-                     color="yellow"
-></app-elements-filter>
+<div *ngFor="let f of filters; let cnt = index">
+  <div [ngSwitch]="f.type">
+    <div *ngSwitchCase="'range'">
+      <app-elements-filter [filterTable]="mainElementsTable" filterLabel="{{f.label}}" filterType="range"
+                           filterId="{{f.id}}{{cnt}}" operandKey="{{f.value}}" [filterOptions]="f.options"
+                           unit="{{f.unit}}"
+                           color="{{f.color}}"
+      ></app-elements-filter>
 
-<app-elements-filter [filterTable]="mainElementsTable" filterLabel="Category" filterType="select"
-                     filterId="category" operandKey="category" [filterOptions]="{
-                    }"
-                     color="lightblue"
-></app-elements-filter>
+    </div>
+    <div *ngSwitchCase="'select'">
+      <app-elements-filter [filterTable]="mainElementsTable" filterLabel="Category" filterType="select"
+                           filterId="{{f.id}}{{cnt}}" operandKey="category" [filterOptions]="f.options"
+                           color="{{f.color}}"
+      ></app-elements-filter>
+    </div>
+  </div>
+
+</div>
+
 
 <app-table tableId="main" [show]="['symbol', 'atomic_number', 'atomic_mass']" #mainElementsTable></app-table>
 
 <h4>We are currently building our amazing Elements Table. Come back soon.</h4>
+
+<app-element-status esId="main"></app-element-status>

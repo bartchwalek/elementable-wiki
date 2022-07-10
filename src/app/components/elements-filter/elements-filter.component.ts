@@ -85,11 +85,15 @@ export class ElementsFilterComponent implements OnInit {
     }],
     filtersRegistered: [() => {
       this.fR = true;
+    }],
+    init: [() => {
+      this.init = true;
     }]
-  }
+  };
 
   private ftL: boolean = false;
   private fR: boolean = false;
+  private init: boolean = false;
 
   private onFilteredTableLoaded(fn: (any?) => any): void {
     if (this.ftL) {
@@ -102,6 +106,10 @@ export class ElementsFilterComponent implements OnInit {
     this.events.filteredTableLoaded.forEach(v => v());
   }
 
+  private onInit(): void {
+    this.events.init.forEach(v => v());
+  }
+
   private onFiltersRegistered(fn: (any?) => any): void {
     if (this.fR) {
       return fn();
@@ -109,11 +117,22 @@ export class ElementsFilterComponent implements OnInit {
     this.events.filtersRegistered.push(fn);
   }
 
+  private afterInit(fn: (any?) => any): void {
+    if (this.init) {
+      return fn();
+    }
+    this.events.init.push(fn);
+  }
+
   private filtersRegistered(): void {
     this.events.filtersRegistered.forEach(v => v());
   }
 
   private subFilters = [];
+
+  public getSubFilter(name: string) {
+    return this.subFilters.find(v => v.name === name);
+  }
 
   @Input() set filterTable(ft: TableComponent) {
     if (ft) {
@@ -195,14 +214,17 @@ export class ElementsFilterComponent implements OnInit {
 
         break;
     }
+    this.onInit();
   }
 
   registerFilters(): void {
-    this.filteringService.registerFilter(this.filteredTable.tableId, this.filters[0].filter, this.filterId);
-    this.filteredTable.elements.forEach(v => {
-      v.componentRef.addFilter(this.filterId, this.color);
+    this.afterInit(() => {
+      this.filteringService.registerFilter(this.filteredTable.tableId, this.filters[0].filter, this.filterId);
+      this.filteredTable.elements.forEach(v => {
+        v.componentRef.addFilter(this.filterId, this.color, this);
+      });
+      this.filtersRegistered();
     });
-    this.filtersRegistered();
   }
 
   _setFilterValue(category: string, filter: string, event: any): void {

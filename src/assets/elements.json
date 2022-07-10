@@ -1,506 +1,530 @@
-[
-  {
-    "name": "Hydrogen",
-    "symbol": "H",
-    "an": 1,
-    "aw": 1.00797,
-    "grid": [
-      0,
-      0
-    ],
-    "d": 0.0899,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
+{
+  "definitions": {
+    "groups": [
+      "hydrogen and alkali metals"
+    ]
   },
-  {
-    "name": "Helium",
-    "symbol": "He",
-    "an": 2,
-    "aw": 4.00260,
-    "grid": [
-      0,
-      17
-    ],
-    "d": 0.1785,
-    "bp": 0,
-    "mp": 0,
-    "category": "inert_gasses"
-  },
-  {
-    "name": "Lithium",
-    "symbol": "Li",
-    "an": 3,
-    "aw": 6.941,
-    "grid": [
-      1,
-      0
-    ],
-    "d": 0.53,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Beryllium",
-    "symbol": "Be",
-    "an": 4,
-    "aw": 9.01218,
-    "grid": [
-      1,
-      1
-    ],
-    "d": 1.848,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Boron",
-    "symbol": "B",
-    "an": 5,
-    "aw": 10.81,
-    "grid": [
-      1,
-      12
-    ],
-    "d": 2.46,
-    "bp": 0,
-    "mp": 0,
-    "category": "semi_conductors"
-  },
-  {
-    "name": "Carbon",
-    "symbol": "C",
-    "an": 6,
-    "aw": 12.011,
-    "grid": [
-      1,
-      13
-    ],
-    "d": 2.26,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Nitrogen",
-    "symbol": "N",
-    "an": 7,
-    "aw": 14.0067,
-    "grid": [
-      1,
-      14
-    ],
-    "d": 1.2506,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Oxygen",
-    "symbol": "O",
-    "an": 8,
-    "aw": 15.9994,
-    "grid": [
-      1,
-      15
-    ],
-    "d": 1.429,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Fluorine",
-    "symbol": "F",
-    "an": 9,
-    "aw": 18.998403,
-    "grid": [
-      1,
-      16
-    ],
-    "d": 1.696,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Neon",
-    "symbol": "Ne",
-    "an": 10,
-    "aw": 20.179,
-    "grid": [
-      1,
-      17
-    ],
-    "d": 0.9,
-    "bp": 0,
-    "mp": 0,
-    "category": "inert_gasses"
-  },
-  {
-    "name": "Sodium",
-    "symbol": "Na",
-    "an": 11,
-    "aw": 22.98977,
-    "grid": [
-      2,
-      0
-    ],
-    "d": 0.968,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Magnesium",
-    "symbol": "Mg",
-    "an": 12,
-    "aw": 24.305,
-    "grid": [
-      2,
-      1
-    ],
-    "d": 1.738,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Aluminium",
-    "symbol": "Al",
-    "an": 13,
-    "aw": 26.98154,
-    "grid": [
-      2,
-      12
-    ],
-    "d": 2.7,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Silicon",
-    "symbol": "Si",
-    "an": 14,
-    "aw": 28.0855,
-    "grid": [
-      2,
-      13
-    ],
-    "d": 2.33,
-    "bp": 0,
-    "mp": 0,
-    "category": "semi_conductors"
-  },
-  {
-    "name": "Phosphorus",
-    "symbol": "P",
-    "an": 15,
-    "aw": 30.97376,
-    "grid": [
-      2,
-      14
-    ],
-    "d": 1.823,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Sulfur",
-    "symbol": "S",
-    "an": 16,
-    "aw": 32.06,
-    "grid": [
-      2,
-      15
-    ],
-    "d": 1.96,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Chlorine",
-    "symbol": "Cl",
-    "an": 17,
-    "aw": 35.453,
-    "grid": [
-      2,
-      16
-    ],
-    "d": 3.214,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Argon",
-    "symbol": "Ar",
-    "an": 18,
-    "aw": 39.948,
-    "grid": [
-      2,
-      17
-    ],
-    "d": 1.7824,
-    "bp": 0,
-    "mp": 0,
-    "category": "inert_gasses"
-  },
-  {
-    "name": "Potassium",
-    "symbol": "K",
-    "an": 19,
-    "aw": 39.0983,
-    "grid": [
-      3,
-      0
-    ],
-    "d": 0.856,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Calcium",
-    "symbol": "Ca",
-    "an": 20,
-    "aw": 40.08,
-    "grid": [
-      3,
-      1
-    ],
-    "d": 1.55,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Scandium",
-    "symbol": "Sc",
-    "an": 21,
-    "aw": 44.9559,
-    "grid": [
-      3,
-      2
-    ],
-    "d": 2.985,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Titanium",
-    "symbol": "Ti",
-    "an": 22,
-    "aw": 47.90,
-    "grid": [
-      3,
-      3
-    ],
-    "d": 4.507,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Vanadium",
-    "symbol": "V",
-    "an": 23,
-    "aw": 50.9415,
-    "grid": [
-      3,
-      4
-    ],
-    "d": 6.11,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Chromium",
-    "symbol": "Cr",
-    "an": 24,
-    "aw": 51.996,
-    "grid": [
-      3,
-      5
-    ],
-    "d": 7.14,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Manganese",
-    "symbol": "Mn",
-    "an": 25,
-    "aw": 54.9380,
-    "grid": [
-      3,
-      6
-    ],
-    "d": 7.47,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Iron",
-    "symbol": "Fe",
-    "an": 26,
-    "aw": 55.847,
-    "grid": [
-      3,
-      7
-    ],
-    "d": 7.874,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Cobalt",
-    "symbol": "Co",
-    "an": 27,
-    "aw": 58.9332,
-    "grid": [
-      3,
-      8
-    ],
-    "d": 8.9,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Nickel",
-    "symbol": "Ni",
-    "an": 28,
-    "aw": 58.70,
-    "grid": [
-      3,
-      9
-    ],
-    "d": 8.908,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Copper",
-    "symbol": "Cu",
-    "an": 29,
-    "aw": 63.546,
-    "grid": [
-      3,
-      10
-    ],
-    "d": 8.92,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Zinc",
-    "symbol": "Zn",
-    "an": 30,
-    "aw": 65.38,
-    "grid": [
-      3,
-      11
-    ],
-    "d": 7.14,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Gallium",
-    "symbol": "Ga",
-    "an": 31,
-    "aw": 69.72,
-    "grid": [
-      3,
-      12
-    ],
-    "d": 5.904,
-    "bp": 0,
-    "mp": 0,
-    "category": "metals"
-  },
-  {
-    "name": "Germanium",
-    "symbol": "Ge",
-    "an": 32,
-    "aw": 72.59,
-    "grid": [
-      3,
-      13
-    ],
-    "d": 5.323,
-    "bp": 0,
-    "mp": 0,
-    "category": "semi_conductors"
-  },
-  {
-    "name": "Arsenic",
-    "symbol": "As",
-    "an": 33,
-    "aw": 74.9216,
-    "grid": [
-      3,
-      14
-    ],
-    "d": 5.727,
-    "bp": 0,
-    "mp": 0,
-    "category": "semi_conductors"
-  },
-  {
-    "name": "Selenium",
-    "symbol": "Se",
-    "an": 34,
-    "aw": 78.96,
-    "grid": [
-      3,
-      15
-    ],
-    "d": 4.819,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Bromine",
-    "symbol": "Br",
-    "an": 35,
-    "aw": 79.904,
-    "grid": [
-      3,
-      16
-    ],
-    "d": 3.12,
-    "bp": 0,
-    "mp": 0,
-    "category": "non_metals"
-  },
-  {
-    "name": "Krypton",
-    "symbol": "Kr",
-    "an": 36,
-    "aw": 83.80,
-    "grid": [
-      3,
-      17
-    ],
-    "d": 3.75,
-    "bp": 0,
-    "mp": 0,
-    "category": "inert_gasses"
-  }
-]
+  "elements": [
+    {
+      "name": "Hydrogen",
+      "symbol": "H",
+      "an": 1,
+      "aw": 1.00797,
+      "grid": [
+        0,
+        0
+      ],
+      "d": 0.08988,
+      "bp": 20.271,
+      "mp": 13.99,
+      "category": "non_metals",
+      "group": 1,
+      "period": 1,
+      "block": "s",
+      "stpState": "gas",
+      "config": "1s1",
+      "csId": 4515072,
+      "wiki": "https://en.wikipedia.org/wiki/Hydrogen",
+      "appearance": "colorless gas",
+      "discovery": {
+        "by": "Henry Cavendish",
+        "year": 1766
+      },
+      "named": {
+        "by": "Antoine Lavoisier",
+        "year": 1783
+      },
+      "abstract": "Hydrogen is the chemical element with the symbol H and atomic number 1. Hydrogen is the lightest element. At standard conditions hydrogen is a gas of diatomic molecules having the formula H2. It is colorless, odorless, tasteless,[8] non-toxic, and highly combustible. Hydrogen is the most abundant chemical substance in the universe, constituting roughly 75% of all normal matter.[9][note 1] Stars such as the Sun are mainly composed of hydrogen in the plasma state. Most of the hydrogen on Earth exists in molecular forms such as water and organic compounds. For the most common isotope of hydrogen (symbol 1H) each atom has one proton, one electron, and no neutrons."
+    },
+    {
+      "name": "Helium",
+      "symbol": "He",
+      "an": 2,
+      "aw": 4.00260,
+      "grid": [
+        0,
+        17
+      ],
+      "d": 0.1785,
+      "bp": 4.25,
+      "mp": 0.95,
+      "category": "inert_gasses"
+    },
+    {
+      "name": "Lithium",
+      "symbol": "Li",
+      "an": 3,
+      "aw": 6.941,
+      "grid": [
+        1,
+        0
+      ],
+      "d": 0.53,
+      "bp": 1615.15,
+      "mp": 453.69,
+      "category": "metals"
+    },
+    {
+      "name": "Beryllium",
+      "symbol": "Be",
+      "an": 4,
+      "aw": 9.01218,
+      "grid": [
+        1,
+        1
+      ],
+      "d": 1.848,
+      "bp": 2745.15,
+      "mp": 1560.15,
+      "category": "metals"
+    },
+    {
+      "name": "Boron",
+      "symbol": "B",
+      "an": 5,
+      "aw": 10.81,
+      "grid": [
+        1,
+        12
+      ],
+      "d": 2.46,
+      "bp": 3923,
+      "mp": 2453,
+      "category": "semi_conductors"
+    },
+    {
+      "name": "Carbon",
+      "symbol": "C",
+      "an": 6,
+      "aw": 12.011,
+      "grid": [
+        1,
+        13
+      ],
+      "d": 2.26,
+      "bp": 5100,
+      "mp": 4373,
+      "category": "non_metals"
+    },
+    {
+      "name": "Nitrogen",
+      "symbol": "N",
+      "an": 7,
+      "aw": 14.0067,
+      "grid": [
+        1,
+        14
+      ],
+      "d": 1.2506,
+      "bp": 77.35,
+      "mp": 63,
+      "category": "non_metals"
+    },
+    {
+      "name": "Oxygen",
+      "symbol": "O",
+      "an": 8,
+      "aw": 15.9994,
+      "grid": [
+        1,
+        15
+      ],
+      "d": 1.429,
+      "bp": 90.15,
+      "mp": 54.35,
+      "category": "non_metals"
+    },
+    {
+      "name": "Fluorine",
+      "symbol": "F",
+      "an": 9,
+      "aw": 18.998403,
+      "grid": [
+        1,
+        16
+      ],
+      "d": 1.696,
+      "bp": 85.05,
+      "mp": 53.55,
+      "category": "non_metals"
+    },
+    {
+      "name": "Neon",
+      "symbol": "Ne",
+      "an": 10,
+      "aw": 20.179,
+      "grid": [
+        1,
+        17
+      ],
+      "d": 0.9,
+      "bp": 27.15,
+      "mp": 24.55,
+      "category": "inert_gasses"
+    },
+    {
+      "name": "Sodium",
+      "symbol": "Na",
+      "an": 11,
+      "aw": 22.98977,
+      "grid": [
+        2,
+        0
+      ],
+      "d": 0.968,
+      "bp": 1155.95,
+      "mp": 370.94,
+      "category": "metals"
+    },
+    {
+      "name": "Magnesium",
+      "symbol": "Mg",
+      "an": 12,
+      "aw": 24.305,
+      "grid": [
+        2,
+        1
+      ],
+      "d": 1.738,
+      "bp": 1363,
+      "mp": 924,
+      "category": "metals"
+    },
+    {
+      "name": "Aluminium",
+      "symbol": "Al",
+      "an": 13,
+      "aw": 26.98154,
+      "grid": [
+        2,
+        12
+      ],
+      "d": 2.7,
+      "bp": 2740,
+      "mp": 933,
+      "category": "metals"
+    },
+    {
+      "name": "Silicon",
+      "symbol": "Si",
+      "an": 14,
+      "aw": 28.0855,
+      "grid": [
+        2,
+        13
+      ],
+      "d": 2.33,
+      "bp": 3538,
+      "mp": 1693,
+      "category": "semi_conductors"
+    },
+    {
+      "name": "Phosphorus",
+      "symbol": "P",
+      "an": 15,
+      "aw": 30.97376,
+      "grid": [
+        2,
+        14
+      ],
+      "d": 1.823,
+      "bp": 0,
+      "mp": 0,
+      "category": "non_metals"
+    },
+    {
+      "name": "Sulfur",
+      "symbol": "S",
+      "an": 16,
+      "aw": 32.06,
+      "grid": [
+        2,
+        15
+      ],
+      "d": 1.96,
+      "bp": 0,
+      "mp": 0,
+      "category": "non_metals"
+    },
+    {
+      "name": "Chlorine",
+      "symbol": "Cl",
+      "an": 17,
+      "aw": 35.453,
+      "grid": [
+        2,
+        16
+      ],
+      "d": 3.214,
+      "bp": 0,
+      "mp": 0,
+      "category": "non_metals"
+    },
+    {
+      "name": "Argon",
+      "symbol": "Ar",
+      "an": 18,
+      "aw": 39.948,
+      "grid": [
+        2,
+        17
+      ],
+      "d": 1.7824,
+      "bp": 0,
+      "mp": 0,
+      "category": "inert_gasses"
+    },
+    {
+      "name": "Potassium",
+      "symbol": "K",
+      "an": 19,
+      "aw": 39.0983,
+      "grid": [
+        3,
+        0
+      ],
+      "d": 0.856,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Calcium",
+      "symbol": "Ca",
+      "an": 20,
+      "aw": 40.08,
+      "grid": [
+        3,
+        1
+      ],
+      "d": 1.55,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Scandium",
+      "symbol": "Sc",
+      "an": 21,
+      "aw": 44.9559,
+      "grid": [
+        3,
+        2
+      ],
+      "d": 2.985,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Titanium",
+      "symbol": "Ti",
+      "an": 22,
+      "aw": 47.90,
+      "grid": [
+        3,
+        3
+      ],
+      "d": 4.507,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Vanadium",
+      "symbol": "V",
+      "an": 23,
+      "aw": 50.9415,
+      "grid": [
+        3,
+        4
+      ],
+      "d": 6.11,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Chromium",
+      "symbol": "Cr",
+      "an": 24,
+      "aw": 51.996,
+      "grid": [
+        3,
+        5
+      ],
+      "d": 7.14,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Manganese",
+      "symbol": "Mn",
+      "an": 25,
+      "aw": 54.9380,
+      "grid": [
+        3,
+        6
+      ],
+      "d": 7.47,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Iron",
+      "symbol": "Fe",
+      "an": 26,
+      "aw": 55.847,
+      "grid": [
+        3,
+        7
+      ],
+      "d": 7.874,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Cobalt",
+      "symbol": "Co",
+      "an": 27,
+      "aw": 58.9332,
+      "grid": [
+        3,
+        8
+      ],
+      "d": 8.9,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Nickel",
+      "symbol": "Ni",
+      "an": 28,
+      "aw": 58.70,
+      "grid": [
+        3,
+        9
+      ],
+      "d": 8.908,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Copper",
+      "symbol": "Cu",
+      "an": 29,
+      "aw": 63.546,
+      "grid": [
+        3,
+        10
+      ],
+      "d": 8.92,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Zinc",
+      "symbol": "Zn",
+      "an": 30,
+      "aw": 65.38,
+      "grid": [
+        3,
+        11
+      ],
+      "d": 7.14,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Gallium",
+      "symbol": "Ga",
+      "an": 31,
+      "aw": 69.72,
+      "grid": [
+        3,
+        12
+      ],
+      "d": 5.904,
+      "bp": 0,
+      "mp": 0,
+      "category": "metals"
+    },
+    {
+      "name": "Germanium",
+      "symbol": "Ge",
+      "an": 32,
+      "aw": 72.59,
+      "grid": [
+        3,
+        13
+      ],
+      "d": 5.323,
+      "bp": 0,
+      "mp": 0,
+      "category": "semi_conductors"
+    },
+    {
+      "name": "Arsenic",
+      "symbol": "As",
+      "an": 33,
+      "aw": 74.9216,
+      "grid": [
+        3,
+        14
+      ],
+      "d": 5.727,
+      "bp": 0,
+      "mp": 0,
+      "category": "semi_conductors"
+    },
+    {
+      "name": "Selenium",
+      "symbol": "Se",
+      "an": 34,
+      "aw": 78.96,
+      "grid": [
+        3,
+        15
+      ],
+      "d": 4.819,
+      "bp": 0,
+      "mp": 0,
+      "category": "non_metals"
+    },
+    {
+      "name": "Bromine",
+      "symbol": "Br",
+      "an": 35,
+      "aw": 79.904,
+      "grid": [
+        3,
+        16
+      ],
+      "d": 3.12,
+      "bp": 0,
+      "mp": 0,
+      "category": "non_metals"
+    },
+    {
+      "name": "Krypton",
+      "symbol": "Kr",
+      "an": 36,
+      "aw": 83.80,
+      "grid": [
+        3,
+        17
+      ],
+      "d": 3.75,
+      "bp": 0,
+      "mp": 0,
+      "category": "inert_gasses"
+    }
+  ]
+}

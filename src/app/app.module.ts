@@ -13,6 +13,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { ElementsFilterComponent } from './components/elements-filter/elements-filter.component';
 import { ColorSelectorComponent } from './components/materials/color-selector/color-selector.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ElementStatusComponent } from './components/element-status/element-status.component';
+import { ElementCardComponent } from './components/element-card/element-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     SearchPageComponent,
     MorePageComponent,
     ElementsFilterComponent,
-    ColorSelectorComponent
+    ColorSelectorComponent,
+    ElementStatusComponent,
+    ElementCardComponent
   ],
   imports: [
     BrowserModule,

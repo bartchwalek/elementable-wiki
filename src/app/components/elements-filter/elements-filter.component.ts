@@ -18,6 +18,7 @@ export interface IElementFilterOptions {
   min?: number;
   max?: number;
   step?: number;
+  numSteps?: number;
   initialState?: {
     lowerBound: number;
     upperBound: number;
@@ -28,6 +29,7 @@ const defaultElementFilterOptionsRange: IElementFilterOptions = {
   min: 0,
   max: 200,
   step: 1,
+  numSteps: 100,
   initialState: {
     lowerBound: 10,
     upperBound: 180
@@ -44,6 +46,8 @@ export class ElementsFilterComponent implements OnInit {
   private filteredTable: TableComponent;
 
   public _color: string = 'lightgreen';
+
+  public hasPresetRange: boolean = false;
 
   @Input() public unit: string;
 
@@ -88,12 +92,16 @@ export class ElementsFilterComponent implements OnInit {
     }],
     init: [() => {
       this.init = true;
+    }],
+    filterOptionsSet: [() => {
+      this.filterOptionsSet = true;
     }]
   };
 
   private ftL: boolean = false;
   private fR: boolean = false;
   private init: boolean = false;
+  private filterOptionsSet: boolean = false;
 
   private onFilteredTableLoaded(fn: (any?) => any): void {
     if (this.ftL) {
@@ -110,6 +118,10 @@ export class ElementsFilterComponent implements OnInit {
     this.events.init.forEach(v => v());
   }
 
+  private onFilterOptionsSet(): void {
+    this.events.filterOptionsSet.forEach(v => v());
+  }
+
   private onFiltersRegistered(fn: (any?) => any): void {
     if (this.fR) {
       return fn();
@@ -117,11 +129,26 @@ export class ElementsFilterComponent implements OnInit {
     this.events.filtersRegistered.push(fn);
   }
 
-  private afterInit(fn: (any?) => any): void {
+  private afterInit(fn: (any?) => any, once: boolean = true): void {
     if (this.init) {
       return fn();
     }
-    this.events.init.push(fn);
+    const idx = this.events.init.length;
+    this.events.init.push(once ? () => {
+      this.events.init.splice(idx, 1);
+      fn();
+    } : fn);
+  }
+
+  private afterFilterOptionsSet(fn: (any?) => any, once: boolean = true): void {
+    if (this.filterOptionsSet) {
+      return fn();
+    }
+    const idx = this.events.filterOptionsSet.length;
+    this.events.filterOptionsSet.push(once ? () => {
+      this.events.filterOptionsSet.splice(idx, 1);
+      fn();
+    } : fn);
   }
 
   private filtersRegistered(): void {
@@ -149,7 +176,24 @@ export class ElementsFilterComponent implements OnInit {
 
   @Input() filterType: EElementFilterType | string;
 
-  @Input() filterOptions: IElementFilterOptions;
+  private _fo: IElementFilterOptions;
+
+  @Input() set filterOptions(fo: IElementFilterOptions) {
+    if (fo) {
+      this._fo = fo;
+      this.onFilterOptionsSet();
+    }
+    setTimeout(() => {
+      if (this._fo === undefined) {
+        this._fo = {};
+        this.onFilterOptionsSet();
+      }
+    }, 1000);
+  }
+
+  get filterOptions(): IElementFilterOptions {
+    return this._fo;
+  }
 
   @Input() operandKey: string;
 
@@ -185,36 +229,67 @@ export class ElementsFilterComponent implements OnInit {
             }
           });
         });
+        this.onInit();
 
         break;
 
       default:
       case EElementFilterType.range:
-        this.filterOptions = Object.assign({}, defaultElementFilterOptionsRange, this.filterOptions);
-        const min = new ElementMinFilter(this.filterOptions.min, this.operandKey);
-        const max = new ElementMaxFilter(this.filterOptions.max, this.operandKey);
-        this.subFilters.push({
-          name: 'min',
-          filter: min
-        });
-        this.subFilters.push({
-          name: 'max',
-          filter: max
-        });
-        this.filters.push({
-          name: this.filterId,
-          filter: min.chain(max)
-        });
-        this.onFilteredTableLoaded(() => {
-          this.onFiltersRegistered(() => {
-            this.setFilterValue('min', this.filterOptions.initialState.lowerBound, false);
-            this.setFilterValue('max', this.filterOptions.initialState.upperBound, false);
+        this.afterFilterOptionsSet(() => {
+          if (this.filterOptions.min !== undefined && this.filterOptions.max !== undefined) {
+            this.hasPresetRange = true;
+          }
+
+          this.filterOptions = Object.assign({}, defaultElementFilterOptionsRange, this.filterOptions);
+          const min = new ElementMinFilter(this.filterOptions.min, this.operandKey);
+          const max = new ElementMaxFilter(this.filterOptions.max, this.operandKey);
+          this.subFilters.push({
+            name: 'min',
+            filter: min
           });
+          this.subFilters.push({
+            name: 'max',
+            filter: max
+          });
+          this.filters.push({
+            name: this.filterId,
+            filter: min.chain(max)
+          });
+          this.onFilteredTableLoaded(() => {
+            this.onFiltersRegistered(() => {
+              this.setFilterValue('min', this.filterOptions.initialState.lowerBound, false);
+              this.setFilterValue('max', this.filterOptions.initialState.upperBound, false);
+              if (!this.hasPresetRange) { // try to find and apply the range give the set of elements.
+                let min: number;
+                let max: number;
+                this.filteredTable.elements.forEach((v: AtomicElement) => {
+                  if (min === undefined) {
+                    min = v[this.operandKey];
+                    max = min;
+                    return;
+                  }
+                  const o = v[this.operandKey];
+                  if (o > max) {
+                    return max = o;
+                  }
+                  if (o < min) {
+                    return min = o;
+                  }
+                });
+                const sDiv = this.filterOptions.numSteps || defaultElementFilterOptionsRange.numSteps;
+                this.filterOptions.step = (max - min) / sDiv;
+                this.filterOptions.max = max + this.filterOptions.step;
+                this.filterOptions.min = min - this.filterOptions.step;
+
+
+              }
+            });
+          });
+          this.onInit();
         });
 
         break;
     }
-    this.onInit();
   }
 
   registerFilters(): void {

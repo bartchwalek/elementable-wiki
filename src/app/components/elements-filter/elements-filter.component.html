@@ -18,13 +18,13 @@
                 [style.background]="filterEnabled.checked ? color : 'white'">
         <span>{{filterLabel}}</span> <span style="width:20px; margin-right: 20px;"></span>
         <label for="atomic-weight-min">min</label>
-        <input type="range" min="{{filterOptions.min}}" max="{{filterOptions.max}}" step="{{filterOptions.step}}"
-               value="{{filterOptions.initialState.lowerBound}}" class="slider" id="atomic-weight-min"
+        <input type="range" min="{{filterOptions?.min}}" max="{{filterOptions?.max}}" step="{{filterOptions?.step}}"
+               value="{{filterOptions?.initialState.lowerBound}}" class="slider" id="atomic-weight-min"
                (input)="setFilterValue('min', $event)" #awMinValue>
 
         <label for="atomic-weight-max">max</label>
-        <input type="range" min="{{filterOptions.min}}" max="{{filterOptions.max}}" step="{{filterOptions.step}}"
-               value="{{filterOptions.initialState.upperBound}}" class="slider" id="atomic-weight-max"
+        <input type="range" min="{{filterOptions?.min}}" max="{{filterOptions?.max}}" step="{{filterOptions?.step}}"
+               value="{{filterOptions?.initialState.upperBound}}" class="slider" id="atomic-weight-max"
                (input)="setFilterValue('max', $event)" #awMaxValue>
 
         <span>{{awMinValue.value}} - {{awMaxValue.value}} {{unit}}</span>

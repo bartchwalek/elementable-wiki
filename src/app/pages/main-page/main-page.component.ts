@@ -23,10 +23,6 @@ export class MainPageComponent implements OnInit {
       count: 0,
       type: 'range',
       id: 'aw.minmax',
-      options: {
-        min: 0,
-        max: 200
-      },
       unit: 'g/mol',
       color: 'lightgreen'
     },
@@ -37,8 +33,6 @@ export class MainPageComponent implements OnInit {
       type: 'range',
       id: 'd.minmax',
       options: {
-        min: 0,
-        max: 10,
         step: 0.1,
         initialState: {
           lowerBound: 0,
@@ -55,8 +49,6 @@ export class MainPageComponent implements OnInit {
       type: 'range',
       id: 'bp.minmax',
       options: {
-        min: 0,
-        max: 4000,
         step: 10,
         initialState: {
           lowerBound: 0,
@@ -73,8 +65,6 @@ export class MainPageComponent implements OnInit {
       type: 'range',
       id: 'mp.minmax',
       options: {
-        min: 0,
-        max: 600,
         step: 10,
         initialState: {
           lowerBound: 0,

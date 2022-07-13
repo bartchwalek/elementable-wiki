@@ -1,20 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ElementComponent } from './components/element/element.component';
-import { TableComponent } from './components/table/table.component';
-import { MainPageComponent } from './pages/main-page/main-page.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { SearchPageComponent } from './pages/search-page/search-page.component';
-import { MorePageComponent } from './pages/more-page/more-page.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {ElementComponent} from './components/element/element.component';
+import {TableComponent} from './components/table/table.component';
+import {MainPageComponent} from './pages/main-page/main-page.component';
+import {MenuComponent} from './components/menu/menu.component';
+import {SearchPageComponent} from './pages/search-page/search-page.component';
+import {MorePageComponent} from './pages/more-page/more-page.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ElementsFilterComponent } from './components/elements-filter/elements-filter.component';
-import { ColorSelectorComponent } from './components/materials/color-selector/color-selector.component';
+import {ElementsFilterComponent} from './components/elements-filter/elements-filter.component';
+import {ColorSelectorComponent} from './components/materials/color-selector/color-selector.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { ElementStatusComponent } from './components/element-status/element-status.component';
-import { ElementCardComponent } from './components/element-card/element-card.component';
+import {ElementStatusComponent} from './components/element-status/element-status.component';
+import {ElementCardComponent} from './components/element-card/element-card.component';
+import { RangeSetterComponent } from './components/materials/range-setter/range-setter.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ElementCardComponent } from './components/element-card/element-card.com
     ElementsFilterComponent,
     ColorSelectorComponent,
     ElementStatusComponent,
-    ElementCardComponent
+    ElementCardComponent,
+    RangeSetterComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,4 +41,5 @@ import { ElementCardComponent } from './components/element-card/element-card.com
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,0 +1,28 @@
+.range-setter-container
+  width: calc(100% - 4px)
+  min-width: 100px
+  border: solid 0.5px black
+  min-height: 20px
+  margin: 2px
+  position: relative
+  .range-divider
+    cursor: col-resize
+    height: 100%
+    padding: 0px
+    margin: 0px
+    left: calc(50% - 1px)
+    position: absolute
+    width: 2px
+    background: black
+    box-sizing: border-box
+    &:hover
+      width: 4px
+      left: calc(50% - 2px)
+  .range-range
+    height: 100%
+    background: white
+    border-left: solid thin black
+    border-right: solid thin black
+    display: inline-block
+    position: absolute
+    top: 0px

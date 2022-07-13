@@ -4,7 +4,8 @@ import {AtomicElement} from '../model/atomic.element';
 export enum EComparatorType {
   equal = '==',
   lessThan = '<',
-  moreThan = '>'
+  moreThan = '>',
+  moreThanEqual = '>='
 }
 
 export class ElementCompareFilter<T> extends ElementFilter<T> {

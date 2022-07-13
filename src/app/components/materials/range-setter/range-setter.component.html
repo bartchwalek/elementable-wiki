@@ -1,0 +1,5 @@
+<div class="range-setter-container" (mousemove)="mousemove($event)" (mousedown)="this.mouseIsDown = false"  (mouseup)="mouseup($event)" (dblclick)="addDiv()" #container>
+  <div class="range-range" *ngFor="let range of ranges" [style.left]="range.start + '%'" [style.width]="range.stop - range.start + '%'" style="background:{{range.color}};"></div>
+  <div class="range-divider" *ngFor="let div of dividers; let $index = index" (mousedown)="mousedown($event, $index)"  [style.left]="div.position + '%'"></div>
+
+</div>

@@ -8,6 +8,8 @@
 
 </fieldset>
 
+<app-range-setter [table]="mainElementsTable"></app-range-setter>
+
 <div *ngFor="let f of filters; let cnt = index">
   <div [ngSwitch]="f.type">
     <div *ngSwitchCase="'range'">

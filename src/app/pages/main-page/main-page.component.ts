@@ -33,11 +33,7 @@ export class MainPageComponent implements OnInit {
       type: 'range',
       id: 'd.minmax',
       options: {
-        step: 0.1,
-        initialState: {
-          lowerBound: 0,
-          upperBound: 10
-        }
+        step: 0.1
       },
       unit: 'g/cm3',
       color: 'yellow'
@@ -49,11 +45,7 @@ export class MainPageComponent implements OnInit {
       type: 'range',
       id: 'bp.minmax',
       options: {
-        step: 10,
-        initialState: {
-          lowerBound: 0,
-          upperBound: 100
-        }
+        step: 10
       },
       unit: 'K',
       color: 'lightgrey'
@@ -65,11 +57,7 @@ export class MainPageComponent implements OnInit {
       type: 'range',
       id: 'mp.minmax',
       options: {
-        step: 10,
-        initialState: {
-          lowerBound: 0,
-          upperBound: 100
-        }
+        step: 10
       },
       unit: 'K',
       color: 'lightpink'

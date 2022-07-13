@@ -20,8 +20,8 @@ export interface IElementFilterOptions {
   step?: number;
   numSteps?: number;
   initialState?: {
-    lowerBound: number;
-    upperBound: number;
+    lowerBound?: number;
+    upperBound?: number;
   };
 }
 
@@ -31,8 +31,8 @@ const defaultElementFilterOptionsRange: IElementFilterOptions = {
   step: 1,
   numSteps: 100,
   initialState: {
-    lowerBound: 10,
-    upperBound: 180
+    // lowerBound: 10,
+    // upperBound: 180
   }
 };
 
@@ -182,6 +182,7 @@ export class ElementsFilterComponent implements OnInit {
     if (fo) {
       this._fo = fo;
       this.onFilterOptionsSet();
+      return;
     }
     setTimeout(() => {
       if (this._fo === undefined) {
@@ -240,7 +241,8 @@ export class ElementsFilterComponent implements OnInit {
             this.hasPresetRange = true;
           }
 
-          this.filterOptions = Object.assign({}, defaultElementFilterOptionsRange, this.filterOptions);
+          const def = Object.create(defaultElementFilterOptionsRange);
+          this.filterOptions = Object.assign({}, def, this.filterOptions);
           const min = new ElementMinFilter(this.filterOptions.min, this.operandKey);
           const max = new ElementMaxFilter(this.filterOptions.max, this.operandKey);
           this.subFilters.push({
@@ -257,31 +259,37 @@ export class ElementsFilterComponent implements OnInit {
           });
           this.onFilteredTableLoaded(() => {
             this.onFiltersRegistered(() => {
-              this.setFilterValue('min', this.filterOptions.initialState.lowerBound, false);
-              this.setFilterValue('max', this.filterOptions.initialState.upperBound, false);
+
               if (!this.hasPresetRange) { // try to find and apply the range give the set of elements.
-                let min: number;
-                let max: number;
+                let minVal: number;
+                let maxVal: number;
                 this.filteredTable.elements.forEach((v: AtomicElement) => {
-                  if (min === undefined) {
-                    min = v[this.operandKey];
-                    max = min;
+                  if (minVal === undefined) {
+                    minVal = v[this.operandKey];
+                    maxVal = minVal;
                     return;
                   }
                   const o = v[this.operandKey];
-                  if (o > max) {
-                    return max = o;
+                  if (o > maxVal) {
+                    return maxVal = o;
                   }
-                  if (o < min) {
-                    return min = o;
+                  if (o < minVal) {
+                    return minVal = o;
                   }
                 });
                 const sDiv = this.filterOptions.numSteps || defaultElementFilterOptionsRange.numSteps;
-                this.filterOptions.step = (max - min) / sDiv;
-                this.filterOptions.max = max + this.filterOptions.step;
-                this.filterOptions.min = min - this.filterOptions.step;
-
-
+                this.filterOptions.step = (maxVal - minVal) / sDiv;
+                this.filterOptions.max = maxVal + this.filterOptions.step;
+                this.filterOptions.min = minVal - this.filterOptions.step;
+                if (!this.filterOptions.initialState) {
+                  this.filterOptions.initialState = {};
+                }
+                this.filterOptions.initialState.lowerBound =
+                  this.filterOptions.initialState.lowerBound === undefined ? this.filterOptions.min : this.filterOptions.initialState.lowerBound;
+                this.filterOptions.initialState.upperBound =
+                  this.filterOptions.initialState.upperBound === undefined ? this.filterOptions.max : this.filterOptions.initialState.upperBound;
+                this.setFilterValue('min', this.filterOptions.initialState.lowerBound, false);
+                this.setFilterValue('max', this.filterOptions.initialState.upperBound, false);
               }
             });
           });

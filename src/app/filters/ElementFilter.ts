@@ -10,6 +10,7 @@ export abstract class ElementFilter<T = any> {
   private previous: { filter: ElementFilter<any>, combination: ECombinationType };
 
   public compareOperand: T;
+  
 
   public with(compareValue: T): ElementFilter {
     this.compareOperand = compareValue;

@@ -8,3 +8,38 @@
     &.button-filter
       &:after
         content: 'filter'
+
+.filters
+  position: fixed
+  top: 0px
+  width: 100vw
+  left: 0px
+  margin-left: 0px
+  border-top: solid thin black
+  background: white
+  z-index: 10002
+  border-bottom: solid thin black
+  .filters-title
+    font-size: 30px
+
+.filters-bar
+  position: fixed
+  text-align: center    
+  align-items: center
+  right: 0px
+  display: grid
+  top: calc(50vh - 25px)
+  width: 50px
+  .filters-button
+    position: relative
+    font-size: 22px
+    cursor: pointer
+    text-decoration: underline
+    z-index: 1001
+    width: 50px
+    height: 50px
+    background: white
+    border: solid thin black
+
+
+  

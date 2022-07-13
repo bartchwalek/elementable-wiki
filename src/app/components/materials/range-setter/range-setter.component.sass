@@ -1,10 +1,14 @@
+.range-selector
+  min-width: 200px
+  position: relative
 .range-setter-container
-  width: calc(100% - 4px)
-  min-width: 100px
+  width: 100%
   border: solid 0.5px black
   min-height: 20px
-  margin: 2px
+  margin: 0px
   position: relative
+  z-index: 10004
+  margin-bottom: 20px
   .range-divider
     cursor: col-resize
     height: 100%
@@ -26,3 +30,26 @@
     display: inline-block
     position: absolute
     top: 0px
+    color: white
+    font-size: 14px
+.arrow-up
+  width: 0
+  height: 0
+  border-left: 5px solid transparent
+  border-right: 5px solid transparent
+  border-bottom: 5px solid black
+  &.value-indicator
+    position: absolute
+    left: -4px
+    bottom: -5px
+.indicator-box
+  font-size: 10px
+  color: black
+  background: white
+  border: solid 0.5px black
+  height: 15px
+  width: 60px
+  bottom: -20px
+  left: -30px
+  position: absolute
+  overflow: hidden

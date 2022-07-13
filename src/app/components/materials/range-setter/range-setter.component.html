@@ -1,5 +1,15 @@
+<div class="range-selector">
+  <select (input)="selectOperand($event)">
+    <option *ngFor="let o of options" value="{{o.value}}">{{o.label}}</option>
+  </select>
+</div>
 <div class="range-setter-container" (mousemove)="mousemove($event)" (mousedown)="this.mouseIsDown = false"  (mouseup)="mouseup($event)" (dblclick)="addDiv()" #container>
-  <div class="range-range" *ngFor="let range of ranges" [style.left]="range.start + '%'" [style.width]="range.stop - range.start + '%'" style="background:{{range.color}};"></div>
-  <div class="range-divider" *ngFor="let div of dividers; let $index = index" (mousedown)="mousedown($event, $index)"  [style.left]="div.position + '%'"></div>
+  <div class="range-range" *ngFor="let range of ranges" [style.left]="range.start + '%'" [style.width]="range.stop - range.start + '%'" style="color:{{ range.tcolor }};background:{{ range.color }};">
+    {{range.widthTrimmed?.toFixed(2)}}%
+  </div>
+  <div class="range-divider" *ngFor="let div of dividers; let $index = index" (mousedown)="mousedown($event, $index)"  [style.left]="div.position + '%'">
+    <div class="arrow-up value-indicator"></div>
+    <div class="indicator-box">{{ranges[$index].stop / ratio}}</div>
+  </div>
 
 </div>

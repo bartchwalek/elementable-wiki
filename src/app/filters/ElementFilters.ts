@@ -18,6 +18,11 @@ export class ElementCompareFilter<T> extends ElementFilter<T> {
     this.comparator = comparator;
   }
 
+  
+  public setOperandValueKey(key: string): void {
+    this.operandValueKey = key;
+  }
+
   filteringFunction(element: AtomicElement, prevR: boolean | undefined): boolean {
     // tslint:disable-next-line:no-eval
     return eval(`element[this.operandValueKey]${this.comparator}this.compareOperand`);

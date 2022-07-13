@@ -1,5 +1,21 @@
 <p></p>
-<h2>Welcome to ElemenTable.wiki</h2>
+<!-- <h2>Welcome to ElemenTable.wiki</h2> -->
+
+<app-table tableId="main" [show]="['symbol', 'atomic_number', 'atomic_mass']" #mainElementsTable></app-table>
+
+
+
+<div class="filters-bar">
+  <div class="filters-button" (click)="filtersOpen = !filtersOpen" (mouseenter)="filtersPrev = true" (mouseleave)="filtersPrev = false">F</div>
+  <div class="filters-button" (click)="filtersOpen = !filtersOpen">L</div>
+  <div class="filters-button" (click)="filtersOpen = !filtersOpen">G</div>
+</div>
+<div class="filters" [hidden]="!filtersOpen && !filtersPrev" [style.opacity]="filtersPrev ? (filtersOpen ? 1 : 0.75) : filtersOpacity">
+  <div class="filters-title">Filters</div>
+<div style="width: 100vw; border: solid 0.5px black; z-index: 10003">
+  <app-range-setter [table]="mainElementsTable"></app-range-setter>
+</div>
+
 <fieldset>
   <select #fval>
     <option *ngFor="let f of filterTypes" value="{{f.value}}">{{f.label}}</option>
@@ -7,8 +23,6 @@
   <button class="button button-add button-filter" (click)="addFilter(fval.value)">+</button>
 
 </fieldset>
-
-<app-range-setter [table]="mainElementsTable"></app-range-setter>
 
 <div *ngFor="let f of filters; let cnt = index">
   <div [ngSwitch]="f.type">
@@ -29,10 +43,7 @@
   </div>
 
 </div>
-
-
-<app-table tableId="main" [show]="['symbol', 'atomic_number', 'atomic_mass']" #mainElementsTable></app-table>
-
+</div>
 <h4>We are currently building our amazing Elements Table. Come back soon.</h4>
 
 <app-element-status esId="main"></app-element-status>

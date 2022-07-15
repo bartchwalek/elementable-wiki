@@ -4,46 +4,59 @@
 <app-table tableId="main" [show]="['symbol', 'atomic_number', 'atomic_mass']" #mainElementsTable></app-table>
 
 
-
 <div class="filters-bar">
-  <div class="filters-button" (click)="filtersOpen = !filtersOpen" (mouseenter)="filtersPrev = true" (mouseleave)="filtersPrev = false">F</div>
-  <div class="filters-button" (click)="filtersOpen = !filtersOpen">L</div>
-  <div class="filters-button" (click)="filtersOpen = !filtersOpen">G</div>
-</div>
-<div class="filters" [hidden]="!filtersOpen && !filtersPrev" [style.opacity]="filtersPrev ? (filtersOpen ? 1 : 0.75) : filtersOpacity">
-  <div class="filters-title">Filters</div>
-<div style="width: 100vw; border: solid 0.5px black; z-index: 10003">
-  <app-range-setter [table]="mainElementsTable"></app-range-setter>
-</div>
-
-<fieldset>
-  <select #fval>
-    <option *ngFor="let f of filterTypes" value="{{f.value}}">{{f.label}}</option>
-  </select>
-  <button class="button button-add button-filter" (click)="addFilter(fval.value)">+</button>
-
-</fieldset>
-
-<div *ngFor="let f of filters; let cnt = index">
-  <div [ngSwitch]="f.type">
-    <div *ngSwitchCase="'range'">
-      <app-elements-filter [filterTable]="mainElementsTable" filterLabel="{{f.label}}" filterType="range"
-                           filterId="{{f.id}}{{cnt}}" operandKey="{{f.value}}" [filterOptions]="f.options"
-                           unit="{{f.unit}}"
-                           color="{{f.color}}"
-      ></app-elements-filter>
-
+    <div class="filters-button" (click)="filtersOpen = !filtersOpen" (mouseenter)="filtersPrev = true"
+         (mouseleave)="filtersPrev = false">F
     </div>
-    <div *ngSwitchCase="'select'">
-      <app-elements-filter [filterTable]="mainElementsTable" filterLabel="Category" filterType="select"
-                           filterId="{{f.id}}{{cnt}}" operandKey="category" [filterOptions]="f.options"
-                           color="{{f.color}}"
-      ></app-elements-filter>
+    <div class="filters-button" (click)="legendsOpen = !legendsOpen" (mouseenter)="legendsPrev = true"
+         (mouseleave)="legendsPrev = false">L
     </div>
-  </div>
+    <div class="filters-button" (click)="filtersOpen = !filtersOpen">G</div>
+</div>
+<app-draggable-panel type="v" class="filters" [hidden]="!filtersOpen && !filtersPrev" title="Filters"
+                     [style.opacity]="filtersPrev ? (filtersOpen ? 1 : 0.75) : filtersOpacity">
+    <div >
+<!--        <div class="filters-title">Filters</div>-->
+        <div style="width: 100vw; border: solid 0.5px black; z-index: 10003">
+            <app-range-setter [table]="mainElementsTable"></app-range-setter>
+        </div>
 
-</div>
-</div>
+        <fieldset>
+            <select #fval>
+                <option *ngFor="let f of filterTypes" value="{{f.value}}">{{f.label}}</option>
+            </select>
+            <button class="button button-add button-filter" (click)="addFilter(fval.value)">+</button>
+
+        </fieldset>
+
+        <div *ngFor="let f of filters; let cnt = index">
+            <div [ngSwitch]="f.type">
+                <div *ngSwitchCase="'range'">
+                    <app-elements-filter [filterTable]="mainElementsTable" filterLabel="{{f.label}}" filterType="range"
+                                         filterId="{{f.id}}{{cnt}}" operandKey="{{f.value}}" [filterOptions]="f.options"
+                                         unit="{{f.unit}}"
+                                         color="{{f.color}}"
+                    ></app-elements-filter>
+
+                </div>
+                <div *ngSwitchCase="'select'">
+                    <app-elements-filter [filterTable]="mainElementsTable" filterLabel="Category" filterType="select"
+                                         filterId="{{f.id}}{{cnt}}" operandKey="category" [filterOptions]="f.options"
+                                         color="{{f.color}}"
+                    ></app-elements-filter>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</app-draggable-panel>
+
 <h4>We are currently building our amazing Elements Table. Come back soon.</h4>
+
+<app-draggable-panel title="Legend" [hidden]="!legendsOpen && !legendsPrev"
+                     [style.opacity]="legendsPrev ? (legendsOpen ? 1 : 0.75) : filtersOpacity">
+    <app-legend table-id="main"></app-legend>
+</app-draggable-panel>
+
 
 <app-element-status esId="main"></app-element-status>

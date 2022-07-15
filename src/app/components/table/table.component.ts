@@ -31,10 +31,12 @@ export class TableComponent implements OnInit {
 
   constructor(public eService: ElementsService, private EFS: ElementFilteringService) {
     eService.getElements().subscribe((elements: AtomicElement[]) => {
-      this.elements = elements;
-      setTimeout(() => {
-        this.onEvent('elementsLoaded');
-      });
+      if(elements && elements.length > 0) {
+        this.elements = elements;
+        setTimeout(() => {
+          this.onEvent('elementsLoaded');
+        });
+      }
     });
   }
 

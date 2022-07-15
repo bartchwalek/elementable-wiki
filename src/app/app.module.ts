@@ -16,6 +16,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ElementStatusComponent} from './components/element-status/element-status.component';
 import {ElementCardComponent} from './components/element-card/element-card.component';
 import { RangeSetterComponent } from './components/materials/range-setter/range-setter.component';
+import { LegendComponent } from './components/legend/legend/legend.component';
+import { DraggablePanelComponent } from './components/materials/draggable-panel/draggable-panel/draggable-panel.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { RangeSetterComponent } from './components/materials/range-setter/range-
     ElementStatusComponent,
     ElementCardComponent,
     RangeSetterComponent,
+    LegendComponent,
+    DraggablePanelComponent,
   ],
   imports: [
     BrowserModule,

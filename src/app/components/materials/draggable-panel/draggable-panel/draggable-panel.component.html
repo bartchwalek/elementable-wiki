@@ -1,0 +1,8 @@
+<div class="panel-header">
+    <div class="panel-label"><span>{{title}}</span></div>
+    <div class="panel-buttons"> <fa-icon [hidden]="isDragging" [icon]="ico" #dIcon draggable="true" (dragstart)="dragStart($event)" (drag)="drag($event)" (dragend)="dragEnd($event)" (mousedown)="mdown($event)"></fa-icon> </div>
+</div>
+<div class="panel-container">
+    <ng-content></ng-content>
+</div>
+

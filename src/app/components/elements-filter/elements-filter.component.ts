@@ -211,7 +211,7 @@ export class ElementsFilterComponent implements OnInit {
 
         const sFilt = new ElementCompareFilter<string>('', this.operandKey);
         this.filters.push({
-          name: 'compare',
+          name: this.filterId,
           filter: sFilt
         });
         this.subFilters.push({
@@ -302,7 +302,7 @@ export class ElementsFilterComponent implements OnInit {
 
   registerFilters(): void {
     this.afterInit(() => {
-      this.filteringService.registerFilter(this.filteredTable.tableId, this.filters[0].filter, this.filterId);
+      this.filteringService.registerFilter(this.filteredTable.tableId, this, this.filters[0].filter, this.filterId);
       this.filteredTable.elements.forEach(v => {
         v.componentRef.addFilter(this.filterId, this.color, this);
       });

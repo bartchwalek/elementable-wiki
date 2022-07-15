@@ -9,6 +9,8 @@ export class MainPageComponent implements OnInit {
 
   public filtersOpen: boolean = true;
   public filtersPrev: boolean = false;
+  public legendsPrev: boolean = false;
+  public legendsOpen: boolean = true;
   public filtersOpacity: number = 0;
   public filters = [];
   public filterTypes: Array<any> = [
@@ -73,8 +75,9 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.filtersOpen = false;
+      this.legendsOpen = false
       this.filtersOpacity = 1;
-    }, 1000);
+      }, 1000);
   }
 
 

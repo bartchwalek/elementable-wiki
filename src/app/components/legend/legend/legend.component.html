@@ -1,1 +1,14 @@
-<p>legend works!</p>
+<div *ngFor="let tf of tableFilters" class="legend-element">
+    <div class="label"> {{tf.filterComponent.filterLabel}}:
+    <div [ngSwitch]="tf.filterComponent.filterType">
+        <ng-template *ngSwitchCase="'range'">
+            {{tf.filterComponent.filterOptions.min}} - {{tf.filterComponent.filterOptions.max}}
+        </ng-template>
+        <ng-template *ngSwitchCase="'select'">
+            {{tf.filterComponent}}
+        </ng-template>
+
+    </div>
+
+    </div> <div class="color-indicator" [style.background]="tf.filterComponent.color"></div>
+</div>

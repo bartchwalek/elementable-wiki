@@ -1,12 +1,12 @@
 <div *ngFor="let tf of tableFilters" class="legend-element">
     <div class="label"> {{tf.filterComponent.filterLabel}}:
-    <div [ngSwitch]="tf.filterComponent.filterType">
-        <ng-template *ngSwitchCase="'range'">
-            {{tf.filterComponent.filterOptions.min}} - {{tf.filterComponent.filterOptions.max}}
-        </ng-template>
-        <ng-template *ngSwitchCase="'select'">
-            {{tf.filterComponent}}
-        </ng-template>
+    <div [ngSwitch]="tf.filterComponent.filterTypeStr">
+        <ng-container *ngSwitchCase="'range'">
+            {{getFilterMin(tf.filterComponent)}} - {{getFilterMax(tf.filterComponent)}}
+        </ng-container>
+        <ng-container *ngSwitchCase="'select'">
+            {{tf.filterComponent.getComparator('==').value}}
+        </ng-container>
 
     </div>
 

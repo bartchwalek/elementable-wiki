@@ -37,7 +37,7 @@ export class DraggablePanelComponent implements OnInit, AfterViewInit {
             }
             // tslint:disable-next-line:one-variable-per-declaration
             const dragX = e.pageX, dragY = e.pageY;
-            console.log(e);
+            // console.log(e);
             // console.log("drag", dragX);
             // tslint:disable-next-line:no-unused-expression
             this.moveX && this.renderer.setStyle(el.nativeElement, 'left', (dragX - this.icoOffset.x - this.icoOffset.shiftX) + 'px');

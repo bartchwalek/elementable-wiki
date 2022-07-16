@@ -4,7 +4,7 @@ import {
     IFilterConfiguration,
     ITableFilterConfiguration
 } from 'src/app/services/element-filtering.service';
-import {TableComponent} from '../../table/table.component';
+import {EComparator, ElementsFilterComponent} from '../../elements-filter/elements-filter.component';
 
 @Component({
     selector: 'app-legend',
@@ -30,6 +30,14 @@ export class LegendComponent implements OnInit {
     }
 
     ngOnInit(): void {
+    }
+
+    getFilterMin(fc: ElementsFilterComponent): string {
+        return fc.getComparator('>').value; // .toFixed(2);
+    }
+
+    getFilterMax(fc: ElementsFilterComponent): string {
+        return fc.getComparator('<').value; // .toFixed(2);
     }
 
 

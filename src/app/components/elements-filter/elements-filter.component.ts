@@ -40,6 +40,16 @@ export enum EComparator {
     less = 'less', lessOrEqual = 'lessOrEqual', more = 'more', moreOrEqual = 'moreOrEqual', equal = 'equal'
 }
 
+export const CComparators = ['<', '<=', '>', '>=', '=='];
+
+export const CComparatorsMap = {
+    '<': EComparator.less,
+    '<=': EComparator.lessOrEqual,
+    '>': EComparator.more,
+    '>=': EComparator.moreOrEqual,
+    '==': EComparator.equal
+};
+
 export const CComparatorDefinitions = [
     {
         type: '<',
@@ -80,12 +90,28 @@ export class ElementsFilterComponent implements OnInit {
 
     public comparators: Map<EComparator, IComparator> = new Map<EComparator, IComparator>();
 
-    public setComparator(ec: EComparator, value: any): void {
+    public setComparator(ec: EComparator | string, value: any): void {
+        // tslint:disable-next-line:variable-name
+        let _ec: EComparator = typeof ec === 'string' ? EComparator[ec] as EComparator : ec;
+        if (!_ec) {
+            ec = CComparatorsMap[ec];
+            _ec = EComparator[ec];
+        }
         const ic: IComparator = {
-            type: ec,
+            type: _ec,
             value
         };
-        this.comparators.set(ec, ic);
+        this.comparators.set(_ec, ic);
+    }
+
+    public getComparator(ec: EComparator | string): IComparator {
+        const oec = ec;
+        ec = typeof ec === 'string' ? EComparator[ec] as EComparator : ec;
+        if (!ec) {
+            ec = CComparatorsMap[oec];
+            ec = EComparator[ec];
+        }
+        return this.comparators.get(ec as EComparator);
     }
 
     public hasPresetRange: boolean = false;
@@ -215,6 +241,10 @@ export class ElementsFilterComponent implements OnInit {
     @Input() filterId: string;
 
     @Input() filterType: EElementFilterType | string;
+
+    public get filterTypeStr(): string {
+        return EElementFilterType[this.filterType];
+    }
 
     private _fo: IElementFilterOptions;
 
@@ -377,10 +407,12 @@ export class ElementsFilterComponent implements OnInit {
             switch (this.filterType) {
                 case EElementFilterType.select:
                     f.filter.with(event.target.value);
+                    this.setComparator(EComparator.equal, event.target.value);
                     break;
                 default:
                 case EElementFilterType.range:
                     f.filter.with(parseFloat(event.target.value));
+                    this.setComparator(f.filter.getComparator(), event.target.value);
                     break;
             }
 
